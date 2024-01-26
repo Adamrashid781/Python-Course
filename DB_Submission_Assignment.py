@@ -26,28 +26,12 @@ for a in fileList:
 
 print(files)
 
-for x in files:
+
+for i in files: 
     with conn:
         cur = conn.cursor()
-        sql = "INSERT INTO tbl_files (col_fileName) VALUES (?)"
-        
-        cur.execute(sql, files[x])
-
-# for i in tempTuple: 
-#     with conn:
-#         f = tempTuple(i)
-#         cur = conn.cursor()
-#         cur.execute("INSERT INTO tbl_files(col_fileName) VALUES (?)", \
-#             (f))
-#         conn.commit()
-
-# for x in range(tempTuple): 
-#     # temp = tempTuple[x]
-#     with conn:
-#         cur = conn.cursor()
-#         sql = "INSERT INTO tbl_files (col_fileName) VALUES (?)"
-#         temp = files[x]
-#         cur.execute(sql, temp)
+        cur.execute("INSERT INTO tbl_files(col_fileName) VALUES (?)", (i,))
+        conn.commit()
 
 
 print(conn.total_changes)
