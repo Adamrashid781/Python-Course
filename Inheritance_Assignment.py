@@ -1,6 +1,6 @@
 
 
-class Parent():
+class Parent:
     name = ' '
     job: ' '
 
@@ -13,3 +13,5 @@ class Child_2(Parent):
     favorite_song = ' '
     car = ' '
     # Inherits the name and job variables from Parent()
+
+
