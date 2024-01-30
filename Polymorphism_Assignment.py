@@ -27,8 +27,8 @@ if __name__ == '__main__':
     parent = Parent()
     child1 = Child1()
     child2 = Child2()
-
     
     parent.print_info()
     child1.print_info()
     child2.print_info()
+    

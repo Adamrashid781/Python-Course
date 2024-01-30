@@ -175,3 +175,31 @@ name = 'Python'
 print(len(name))
 for i in enumerate(name):
     print(i)
+
+
+
+# Args (short for "arguments") is a special syntax in Python written 
+# out as *args. It is used to pass in an undefined number of arguments 
+# to a function. The * represents any number of arguments in tuple form.
+# Args allows you to add on to your current parameters even 
+# if you didn’t have any defined.
+def myFun(*args):
+    for x in args:
+        print(x)
+
+    myFun('hello', 5, 'this is so coooool')
+
+
+
+
+# Kwargs (short for "keyword arguments") is also a special syntax, 
+# just like *args. It is written as **kwargs where the the 
+# asterisks ** represent a key value pair. It can also be used to 
+# pass in any number of undefined arguments into a function. 
+# It acts as a dictionary, mapping out the value to its 
+# corresponding variable key.
+# Output - kwargs {'first': '1', 'second': '2', 'third': '3'}
+def myFun1(**kwargs):
+    print('kwargs', kwargs)
+
+myFun1(first = "1", second = "2", third = "3")
