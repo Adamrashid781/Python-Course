@@ -94,14 +94,12 @@ class ParentWindow(Frame):
                 continue
             time_m = os.path.getmtime(file_path)
             time_m = datetime.fromtimestamp(time_m)
-            print('This is the modification time: '.format( time_m))
+            print('This is the modification time: {}'.format( time_m))
             if one_day_ago < time_m: 
+                # moves each file from the source to the destination 
                 shutil.move(file_path, destination)
                 print('moving the {} file now'.format(file_path))
-            
-            # moves each file from the source to the destination 
-            
-            print(i + ' was sucessfully transfered.')
+                print(i + ' was sucessfully transfered.')
 
     # Creates function to exit the program
     def exit_program(self):
