@@ -30,7 +30,8 @@ class ParentWindow(Frame):
         print(htmlContent)
         htmlFile.write(htmlContent)
         htmlFile.close()
-        webbrowser.open_new_tab("index_generator.html")
+        url = "http://index_generator.html"
+        webbrowser.open_new_tab(url)
     
     def customText(self):
         print('\nhello custom\n')
@@ -40,7 +41,8 @@ class ParentWindow(Frame):
         print(htmlContent)
         htmlFile.write(htmlContent)
         htmlFile.close()
-        webbrowser.open_new_tab('index_custom.html')
+        url = "http://index_custom.html"
+        webbrowser.open_new_tab(url)
 
 if __name__ =='__main__':
     root = tk.Tk()
