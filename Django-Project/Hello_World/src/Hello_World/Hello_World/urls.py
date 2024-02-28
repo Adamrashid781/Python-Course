@@ -21,11 +21,13 @@ from django.contrib import admin
 from django.urls import path
 from . import views
 
+# You have to include the URLS folder path for any new apps in here, like in line 28
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.home, name = 'home'),
     path('', include('profiles.urls') ),
     
+
 ]
 
 

@@ -5,3 +5,5 @@ from .models import Profile
 def admin_console(request):
     profile = Profile.objects.all()
     return render(request, 'profiles_page.html', {'profile': profile})
+
+
