@@ -1,5 +1,7 @@
 from django.shortcuts import render
+from .models import Profile 
 
 # Create your views here.
 def admin_console(request):
-    return render(request, 'profiles/profiles_page.html')
+    profile = Profile.objects.all()
+    return render(request, 'profiles_page.html', {'profile': profile})
