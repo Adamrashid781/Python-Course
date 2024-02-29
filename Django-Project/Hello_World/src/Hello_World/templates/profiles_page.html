@@ -8,16 +8,42 @@
 {% block header %}Welcome to my Hello World vitual app!{% endblock %}
 
 {%block content %}
+<h1>You are on the Profiles_page.html file</h1>
 
 <div  class = "admin_panel">
     <form name="profileForm" mehtod="POST" action="">
         <div class="fromObject_container label_center">
-            {% csrf_token %}
-            {% for profile in Profile %}
+            <!-- This part will list the profiles -->
+            {% comment %} {% csrf_token %}
+            {% for profile in Profiles %}
                 <ul>
                     <li> {{ profile }}
                 </ul>
-            {% endfor %}
+            {% endfor %} {% endcomment %}
+
+            <!-- This will have a dropdown for what profile to select -->
+            <div class="admin_panel">
+                <form name = "profileForm" method=(POST) action="">
+                    <div class="formObject">
+                        {% csrf_token %}
+                        <label for="menu_id">Select a profile to view: </label>
+                        <select id="<menu_id>" name="menu" onChange="top.location.href=this.options[this.selectedIndex].value;">
+                        {% for profile in Profiles %}
+                            <option value="../{{ profile.pk}}/details/"> {{ profile.username }}</option>
+                            {% comment %} {{ profile.username }} {% endcomment %}
+                        {% endfor %}
+                        </select>
+
+                        <div class = "fromBtn_container">
+                            <a href=""><button type="button" class="btn">Create New Profile</button></a>
+                            <a href="{% url 'home' %}"><button type="button" class="btn">logout of Profile</button></a>
+                        </div>
+                    </div>
+
+                </form>
+
+            </div>
+
         </div>
     </form>
 

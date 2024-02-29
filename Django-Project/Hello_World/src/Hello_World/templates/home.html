@@ -10,22 +10,4 @@
     
     <h1> What would you like to add to the Home Page?</h1>
     
-{% comment %}  {% endcomment %}
-    {% comment %} {% for name in names %}
-        <ul>    
-            {% if name == 'Tutu' %}
-            <li>Hello {{ name }} </li>
-            {% else %}
-            <li> {{ name }} </li> 
-            {% endif %}
-        </ul>
-    {% endfor %}  {% endcomment %}
-
-    {% for profile in Profiles %}
-        <ul>
-            <li>{{profile}}</li>
-        </ul>
-    {% endfor %}
-
-    
 {% endblock %}
