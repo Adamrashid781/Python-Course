@@ -22,4 +22,4 @@ def details(request, pk):
         else:
             print(form.errors)
     else: 
-        return render(request, 'product/present_product.html', {'form': form})
+        return render(request, 'products/present_product.html', {'form': form})
