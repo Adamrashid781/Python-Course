@@ -29,13 +29,13 @@
                         <label for="menu_id">Select a profile to view: </label>
                         <select id="<menu_id>" name="menu" onChange="top.location.href=this.options[this.selectedIndex].value;">
                         {% for profile in Profiles %}
-                            <option value="../{{ profile.pk}}/details/"> {{ profile.username }}</option>
+                            <option value="../{{ profile.pk}}/details/"> {{ profile.Username }}</option>
                             {% comment %} {{ profile.username }} {% endcomment %}
                         {% endfor %}
                         </select>
 
                         <div class = "fromBtn_container">
-                            <a href=""><button type="button" class="btn">Create New Profile</button></a>
+                            <a href="{% url 'createRecord' %}"><button type="button" class="btn">Create New Profile</button></a>
                             <a href="{% url 'home' %}"><button type="button" class="btn">logout of Profile</button></a>
                         </div>
                     </div>

@@ -1,0 +1,21 @@
+
+{% extends "base.html" %}
+
+{%block title%}Admin Console{%endblock%}
+{%block header%}Delete Confirmation:{%endblock%}
+
+
+{% block content%}
+<!-- Insert body text into here -->
+
+    <form method="POST" action=".">
+        {% csrf_token %}
+        <h2>Continue Delete</h2>
+        <p>Are you sure you would like to delete "{{item.Username}}" from the database?</p>
+
+            {{ item.as_p }}
+            <button type="submit" class="btn">Yes, delete it!</button>
+            <a href="{% url 'admin_console' %}"><button type="cancel" class='btn'>Cancel</button></a>
+    </form> 
+
+{% endblock %}

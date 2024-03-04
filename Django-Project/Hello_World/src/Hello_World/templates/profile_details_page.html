@@ -1,0 +1,46 @@
+
+{% extends "base.html"%}
+
+
+{% block title %}Hello World {% endblock %}
+
+{% block header %}Welcome to my Hello World vitual app!{% endblock %}
+
+{%block content %}
+<h1>You are on the Profiles_details_page.html file</h1>
+
+
+            <!-- This part will list the profiles -->
+            {% comment %} {% csrf_token %}
+            {% for profile in Profiles %}
+                <ul>
+                    <li> {{ profile }}
+                </ul>
+            {% endfor %} {% endcomment %}
+
+            <!-- This will have a dropdown for what profile to select -->
+            <div class="admin_panel">
+                <form name = "profileForm" method="POST" action="">
+                    <div class="formObject">
+                        <table>
+                            {% csrf_token %}
+                            {{ form.none_field_errors }}
+                            {{ form.as_table }}
+                        </table>
+
+                        <button type="submit">Submit</button>
+                        <div class = "fromBtn_container">
+                            <a href="{% url 'createRecord' %}"><button type="button" class="btn">Create New Profile</button></a>
+                            <a href="../{{ form.pk }}deleteProfile/"><button type="button" class="btn">Delete Profile</button></a>
+                            <a href="{% url 'home' %}"><button type="button" class="btn">logout of Profile</button></a>
+                        </div>
+                    </div>
+
+                </form>
+
+            </div>
+
+
+
+
+{% endblock %}

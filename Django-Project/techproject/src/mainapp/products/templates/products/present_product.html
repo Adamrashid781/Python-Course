@@ -8,7 +8,7 @@
 {% block content%}
 <!-- Insert body text into here -->
 <div class='admin_panel'>
-    <form name = 'productForm' method=(POST) action = '../details/'>
+    <form name = 'productForm' method="POST" action = '../details/'>
         <table>
             {%csrf_token%}
             {{ form.none_field_errors}}
@@ -16,10 +16,11 @@
 
         </table>
         <div class = "fromBtn_container">
-            <ul> 
-                <li><a href="../{{ form.pk }}/delete/">DELETE</a></li>
-                <li><a href="{% url 'admin_console' %}">CANCEL</a></li>
-            </ul>
+            <input type="Submit">
+            <div class="frmBtn_container">
+                <a href="../{{ form.pk }}delete/"><button type="button" class="btn">DELETE</button></a>
+                <a href="{% url 'admin_console' %}"><button type="button" class="btn">CANCEL</button></a>
+            </div>
 
         </div>
         

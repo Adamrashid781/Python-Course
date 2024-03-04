@@ -23,4 +23,41 @@ def details(request, pk):
         else:
             print(form.errors)
     else:
-        return render(request, 'profiles/profiles_page.html', {'form': form})
+        return render(request, 'profile_details_page.html', {'form': form})
+
+def createRecord(request):
+    form = ProfileForm(request.POST or None)
+    if form.is_valid():
+        form.save()
+        return redirect('admin_console')
+    else: 
+        print(form.errors)
+        form = ProfileForm()
+    context = {
+        'form': form,
+    }
+    return render(request, 'createRecord.html', context)
+
+def deleteProfile(request, pk): 
+    pk = int(pk)
+    item = get_object_or_404(Profile, pk=pk)
+    if request.method == 'POST':
+        item.delete()
+        return redirect('admin_console')
+    context = {
+        'item': item
+        }
+    print(item.Username)
+    return render(request, 'confirmDelete.html', context)
+
+def confirmDelete(request):
+    if request.method == 'POST':
+        # Create a form instance and populate it with data from the request:
+        form = ProfileForm(request.POST or None)
+
+        # Check whether it's valid:
+        if form.is_valid():
+            form.delete()
+            return redirect('admin_console')
+    else:
+        return redirect('admin_console')

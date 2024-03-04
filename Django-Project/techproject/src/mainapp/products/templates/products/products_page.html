@@ -8,7 +8,7 @@
 {% block content%}
 <!-- Insert body text into here -->
 <div class='admin_panel'>
-    <form name = 'productForm' method=(POST) action = ''>
+    <form name = 'productForm' method="POST" action = ''>
         <div class = 'formObject'>
             {% csrf_token %}
             <label for='menu_id'>Select a product form the list to edit:</label>
@@ -18,7 +18,7 @@
                 {% endfor %}
             </select>
             <div class='fromBtn_container'>
-                <a href=''><button type = 'button' class='btn'>Create New Product</button></a>
+                <a href="{% url 'createRecord' %}"><button type = 'button' class='btn'>Create New Product</button></a>
                 <a href="{% url 'home' %}"><button type = 'button' class='btn'>Logout of Profile</button></a>
 
             </div>

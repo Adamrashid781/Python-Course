@@ -23,3 +23,40 @@ def details(request, pk):
             print(form.errors)
     else: 
         return render(request, 'products/present_product.html', {'form': form})
+
+
+def delete(request, pk): 
+    pk = int(pk)
+    item = get_object_or_404(Product, pk=pk)
+    if request.method == 'POST':
+        item.delete()
+        return redirect('admin_console')
+    context = {
+        'item': item
+        }
+    return render(request, 'products/confirmDelete.html', context)
+
+def confirmed(request):
+    if request.method == 'POST':
+        # Create a form instance and populate it with data from the request:
+        form = ProductForm(request.POST or None)
+
+        # Check whether it's valid:
+        if form.is_valid():
+            form.delete()
+            return redirect('admin_console')
+    else:
+        return redirect('admin_console')
+
+def createRecord(request):
+    form = ProductForm(request.POST or None)
+    if form.is_valid():
+        form.save()
+        return redirect('admin_console')
+    else: 
+        print(form.errors)
+        form = ProductForm()
+    context = {
+        'form': form,
+    }
+    return render(request, 'products/createRecord.html', context)
