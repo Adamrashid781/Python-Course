@@ -11,7 +11,7 @@ class Account(models.Model):
     
     # Displays the object output values in the form of a string 
     def __str__(self):
-        display_account = '{0.first_name}: {0.last_name}'
+        display_account = '{0.first_name} {0.last_name}'
         return display_account.format(self)
 
 TransactionTypes = [('Deposit', 'Deposit'), ('Withdrawal', 'Withdrawal')]

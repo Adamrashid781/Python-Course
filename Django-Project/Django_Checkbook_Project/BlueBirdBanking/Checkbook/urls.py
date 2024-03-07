@@ -9,7 +9,7 @@ urlpatterns = [
     path('create/', views.create_account, name='create'),
     
     # sets the url path to Balance sheet page BalanceSheet.html
-    path('balance/', views.balance, name='balance'),
+    path('<int:pk>/balance/', views.balance, name='balance'),
 
     # sets the url path to Transaction page AddNewTransaction.html
     path('transaction/', views.transaction, name='transaction'),
